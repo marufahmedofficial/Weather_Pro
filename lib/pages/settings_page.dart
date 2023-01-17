@@ -26,8 +26,8 @@ class _SettingsPageState extends State<SettingsPage> {
         builder: (context, provider, child) => ListView(
           children: [
             SwitchListTile(
-              title: Text('Show temperature in fah'),
-              subtitle: Text('Default is cel'),
+              title: Text('Show temperature in Fahrenheit'),
+              subtitle: Text('Default is Celsius'),
               value: provider.isFah,
               onChanged: (value) async{
                 provider.setTempUnit(value);
