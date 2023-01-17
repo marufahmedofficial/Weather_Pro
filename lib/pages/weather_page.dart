@@ -1,14 +1,14 @@
+import 'package:Weather_Pro/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/pages/settings_page.dart';
-import 'package:weather_app/untils/constants.dart';
-import 'package:weather_app/untils/location_service.dart';
-import 'package:weather_app/untils/text_styles.dart';
 import '../provider/weather_provider.dart';
 import '../untils/color.dart';
+import '../untils/constants.dart';
 import '../untils/helper_function.dart';
+import '../untils/location_service.dart';
+import '../untils/text_styles.dart';
 
 class WeatherPage extends StatefulWidget {
   static const routeName = '/';
