@@ -42,6 +42,19 @@ dependencies:
   http:
   google_fonts: ^3.0.1
   flutter_easyloading:
+  flutter_native_splash: ^2.2.19
+
+flutter_native_splash:
+  color: "#f7f6f1"
+  color_dark: "#272727"
+  image: images/launcher_image.png
+  image_dark: images/launcher_image.png
+
+  android_12:
+    image: images/launcher_image.png
+    icon_background_color: "#f7f6f1"
+    image_dark: images/launcher_image.png
+    icon_background_color_dark: "#272727"
 
 dev_dependencies:
   flutter_test:
