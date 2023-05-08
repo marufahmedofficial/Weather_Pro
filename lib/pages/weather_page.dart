@@ -252,53 +252,56 @@ class _WeatherPageState extends State<WeatherPage> {
           final forecastM = provider.forecastResponseModel!.list![index];
           return Padding(
             padding: const EdgeInsets.only(left: 15),
-            child: Expanded(
-
-              child: Container(
-                height: 170,
-                width: 160,
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.10),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 8,
+            child: Column(
+              children: [
+                Expanded(
+                  child: Container(
+                    height: 170,
+                    width: 160,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.10),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 8,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            getFormattedDateTime(forecastM.dt!, 'MMM dd yyyy'),
+                            style: txtNormal14,
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            getFormattedDateTime(forecastM.dt!, 'hh mm a'),
+                            style: txtNormal14,
+                          ),
+                          Image.network(
+                            '$iconPrefix${forecastM.weather![0].icon}$iconSuffix',
+                            fit: BoxFit.cover,
+                            height: 50,
+                            width: 50,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            '${forecastM.main!.temp!.round()} $degree${provider.unitSymbool}',
+                            style: txtNormal16W,
+                          ),
+                          Chip(
+                            backgroundColor: cardColor,
+                            label: Text(
+                              forecastM.weather![0].description!,
+                              style: txtNormal14B,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        getFormattedDateTime(forecastM.dt!, 'MMM dd yyyy'),
-                        style: txtNormal14,
-                      ),
-                      SizedBox(height: 5),
-                      Text(
-                        getFormattedDateTime(forecastM.dt!, 'hh mm a'),
-                        style: txtNormal14,
-                      ),
-                      Image.network(
-                        '$iconPrefix${forecastM.weather![0].icon}$iconSuffix',
-                        fit: BoxFit.cover,
-                        height: 50,
-                        width: 50,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        '${forecastM.main!.temp!.round()} $degree${provider.unitSymbool}',
-                        style: txtNormal16W,
-                      ),
-                      Chip(
-                        backgroundColor: cardColor,
-                        label: Text(
-                          forecastM.weather![0].description!,
-                          style: txtNormal14B,
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
-              ),
+              ],
             ),
           );
         },
